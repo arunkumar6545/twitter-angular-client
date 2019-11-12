@@ -1,13 +1,8 @@
 const express = require('express');
 const Twitter = require('twit');
-
+const config = require('./config.js');
 const app = express();
-const client = new Twitter({
-  consumer_key: 'CONSUMER_KEY',
-  consumer_secret: 'CONSUMER_SECRET',
-  access_token: 'ACCESS_TOKEN',
-  access_token_secret: 'ACCESS_TOKEN_SECRET'
-});
+const client = new Twitter(config);
 
 app.use(require('cors')());
 app.use(require('body-parser').json());
